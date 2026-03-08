@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Gallery - Triple A</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <!-- =========================
+         Navbar (unchanged)
+         ========================= -->
+    <header class="navbar">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <img src="assets/logo.png" alt="Triple A logo" style="height:32px; display:inline-block; vertical-align:middle;"/>
+      <span class="logo-text">TRIPLE A</span>
+    </a>
+
+    <nav>
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a href="products.html" data-i18n="nav_products">Products</a>
+      <a href="gallery.html" data-i18n="nav_gallery">Gallery</a>
+      <a href="about.html" data-i18n="nav_about">About</a>
+      <a href="contact.html" data-i18n="nav_contact">Contact</a>
+      <a href="auth.html" data-i18n="nav_signin">Sign In</a>
+    </nav>
+
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button id="lang-en" class="lang-btn">EN</button>
+      <button id="lang-am" class="lang-btn">AM</button>
+    </div>
+
+    <button class="menu-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+    <!-- =========================
+         Main Content
+         ========================= -->
+    <main class="container">
+      <h1 class="text-center">Factory & Product Gallery</h1>
+      <p class="text-center" style="max-width:720px; margin:20px auto 50px; font-size:18px;">
+        Explore our manufacturing facilities, extrusion lines, and finished industrial plastic products.
+      </p>
+
+      <!-- Filters -->
+      <div class="gallery-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="photo">Photos</button>
+        <button class="filter-btn" data-filter="video">Videos</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="media-grid">
+        <!-- Photo -->
+        <div class="media-card" data-type="photo">
+          <img src="assets/gallery/photo1.jpg" alt="Plastic extrusion line">
+        </div>
+
+        <div class="media-card" data-type="photo">
+          <img src="assets/gallery/photo2.jpg.html" alt="Industrial plastic rolls">
+        </div>
+
+        <div class="media-card" data-type="photo">
+          <img src="assets/gallery/photo3.jpg.html" alt="Warehouse storage">
+        </div>
+
+        <!-- Video -->
+        <div class="media-card" data-type="video">
+          <video controls preload="metadata">
+            <source src="assets/gallery/video1.mp4.html" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="media-card" data-type="video">
+          <video controls preload="metadata">
+            <source src="assets/gallery/video2.mp4.html" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </main>
+
+    <!-- =========================
+         Scripts
+         ========================= -->
+    <script>
+      /* Mobile menu */
+      const toggle = document.querySelector('.menu-toggle');
+      toggle.addEventListener('click', () => {
+        document.body.classList.toggle('menu-open');
+      });
+
+      /* Gallery filters */
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const mediaCards = document.querySelectorAll('.media-card');
+
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filter = btn.dataset.filter;
+
+          mediaCards.forEach(card => {
+            if (filter === 'all' || card.dataset.type === filter) {
+              card.style.display = '';
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    </script>
+
+    <script type="module" src="js/auth.js"></script>
+  </body>
+</html>

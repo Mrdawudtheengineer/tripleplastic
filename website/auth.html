@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sign In — Triple A</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- NAV: replace the current top links in all pages with this snippet (see NAV SNIPPET file below) -->
+ <header class="navbar">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <img src="assets/logo.png" alt="Triple A logo" style="height:32px; display:inline-block; vertical-align:middle;"/>
+      <span class="logo-text">TRIPLE A</span>
+    </a>
+
+    <nav>
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a href="products.html" data-i18n="nav_products">Products</a>
+      <a href="gallery.html" data-i18n="nav_gallery">Gallery</a>
+      <a href="about.html" data-i18n="nav_about">About</a>
+      <a href="contact.html" data-i18n="nav_contact">Contact</a>
+      <a href="auth.html" data-i18n="nav_signin">Sign In</a>
+    </nav>
+
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button id="lang-en" class="lang-btn">EN</button>
+      <button id="lang-am" class="lang-btn">AM</button>
+    </div>
+
+    <button class="menu-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+  <!-- Fullscreen split layout: left hero (image) + right forms -->
+  <main class="auth-split"> <!-- keep under navbar -->
+    <section class="auth-left">
+      <div class="hero-inner">
+        <h1 data-i18n="home_hero_title">Premium Plastic Products.<br>Built by Brothers.<br>Engineered for Ethiopia.</h1>
+        <p data-i18n="home_hero_desc">Triple A is more than just a factory — it's a family legacy. Founded by three brothers united by a single vision, we provide Ethiopia's most reliable industrial plastic solutions.</p>
+
+        <!-- small gallery images similar to homepage look -->
+        <div style="display:flex; gap:12px; margin-top:18px; flex-wrap:wrap;">
+          <div class="img-card" style="width:140px; height:90px; background-image:url('assets/gallery/photo1.jpg');"></div>
+          <div class="img-card" style="width:140px; height:90px; background-image:url('assets/gallery/photo2.jpg.html');"></div>
+          <div class="img-card" style="width:140px; height:90px; background-image:url('assets/gallery/photo3.jpg.html');"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="auth-right">
+      <div class="auth-forms">
+        <!-- Sign In Panel -->
+        <div class="form-panel" id="login-view">
+          <h2 data-i18n="signin_title">Welcome back.</h2>
+          <p data-i18n="signin_desc">Sign in to manage your wholesale orders or access the admin portal.</p>
+
+          <label for="email" data-i18n="signin_email">Email Address</label>
+          <input id="email" type="email" placeholder="you@business.com" />
+
+          <label for="password" data-i18n="signin_password">Password</label>
+          <input id="password" type="password" />
+
+          <button id="signInBtn" class="btn" data-i18n="signin_button">Sign In</button>
+
+          <p style="margin-top:10px;">
+            <a href="auth.html#" id="showForgot" data-i18n="forgot_password">Forgot password?</a>
+          </p>
+          <div style="margin-top:12px;">
+  <button id="showSignUpBtn" class="btn">
+    Create Business Account
+  </button>
+</div>
+          <div id="message" aria-live="polite" style="min-height:20px;"></div>
+        </div>
+
+        <!-- Sign Up Panel (hidden by default, auth.js toggles) -->
+        <div class="form-panel" id="signup-view" style="display:none;">
+          <h2 data-i18n="signup_title">Create Account</h2>
+          <p data-i18n="signup_desc">Enter your business contact details. Customers should provide contact info for order follow-up.</p>
+
+          <label for="signup-name" data-i18n="signup_fullname">Full name</label>
+          <input id="signup-name" type="text" />
+
+          <label for="signup-phone" data-i18n="signup_phone">Phone</label>
+          <input id="signup-phone" type="text" />
+
+          <label for="signup-email" data-i18n="signup_email">Email</label>
+          <input id="signup-email" type="email" />
+
+          <label for="signup-password" data-i18n="signup_password">Password</label>
+          <input id="signup-password" type="password" />
+
+          <button id="signUpBtn" class="btn" data-i18n="signup_button">Create Business Account</button>
+          <button id="showLogin" class="btn" style="background:var(--gray-light); color:var(--black); font-weight:700;" data-i18n="signup_back">Back to Sign In</button>
+        </div>
+
+        <!-- Forgot Panel -->
+        <div class="form-panel" id="forgot-view" style="display:none;">
+          <h2 data-i18n="reset_title">Reset Password.</h2>
+          <p data-i18n="reset_desc">Enter your email to receive a recovery link.</p>
+
+          <label for="forgot-email" data-i18n="reset_email">Email Address</label>
+          <input id="forgot-email" type="email" />
+
+          <button id="sendResetBtn" class="btn" data-i18n="reset_button">Send Reset Link</button>
+          <button id="showLoginFromForgot" class="btn" style="background:var(--gray-light); color:var(--black); font-weight:700;" data-i18n="signup_back">Back to Sign In</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/lang-toggle.js"></script>
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>

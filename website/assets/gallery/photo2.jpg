@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Triple A - Industrial Plastic Manufacturing</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="navbar">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <img src="/assets/logo.png" alt="Triple A logo" style="height:32px; display:inline-block; vertical-align:middle;"/>
+      <span class="logo-text">TRIPLE A</span>
+    </a>
+
+    <nav>
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a href="products.html" data-i18n="nav_products">Products</a>
+      <a href="gallery.html" data-i18n="nav_gallery">Gallery</a>
+      <a href="about.html" data-i18n="nav_about">About</a>
+      <a href="contact.html" data-i18n="nav_contact">Contact</a>
+      <a href="auth.html" data-i18n="nav_signin">Sign In</a>
+    </nav>
+
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button id="lang-en" class="lang-btn">EN</button>
+      <button id="lang-am" class="lang-btn">AM</button>
+    </div>
+
+    <button class="menu-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-inner">
+          <h1>Premium Plastic Products.<br>Built by Brothers.<br>Engineered for Ethiopia.</h1>
+          <p class="hero-sub">Triple A is more than just a factory—it's a family legacy. Founded by three brothers united by a single vision, we provide Ethiopia's most reliable, high-volume industrial plastic solutions with the precision your business deserves.</p>
+          <div class="hero-cta">
+            <a class="button-link" href="products.html"><button>Explore the Catalog</button></a>
+            <a class="button-link" href="contact.html"><button class="btn-secondary" style="margin-left:12px;">Get a Quote</button></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="container">
+        <div class="grid">
+          <div class="product-card">
+            <h3>Ethiopian Excellence</h3>
+            <p>Proudly manufactured in the heart of Ethiopia. We understand the local market needs and provide logistics that keep your supply chain moving without international delays.</p>
+          </div>
+
+          <div class="product-card">
+            <h3>A Family Commitment</h3>
+            <p>Named after the three brothers who started it all, Triple A stands for Accountability, Accuracy, and Advancement. When you partner with us, you're partnering with family.</p>
+          </div>
+
+          <div class="product-card">
+            <h3>Industrial Strength</h3>
+            <p>From heavy-duty construction films to precision-cut retail bags, our facility uses state-of-the-art extrusion technology to ensure every micron matters.</p>
+          </div>
+        </div>
+
+        <section style="margin-top:80px; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
+          <h2>The Triple A Promise</h2>
+          <p style="font-size: 18px; margin-top: 20px;">We don't just sell plastic; we provide the foundation for your packaging needs. With 24/7 quality monitoring and a dedicated support team in Ethiopia, we ensure that your wholesale orders are delivered on time, every time, with zero compromises on quality.</p>
+        </section>
+      </section>
+    </main>
+
+    <script>
+      const toggle = document.querySelector('.menu-toggle');
+
+      toggle.addEventListener('click', () => {
+        document.body.classList.toggle('menu-open');
+      });
+  </script>
+
+    <script src="js/lang-toggle.js"></script>
+    <script type="module" src="js/auth.js"></script>
+  </body>
+</html>

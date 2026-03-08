@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contact - Triple A</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="navbar">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <img src="assets/logo.png" alt="Triple A logo" style="height:32px; display:inline-block; vertical-align:middle;"/>
+      <span class="logo-text">TRIPLE A</span>
+    </a>
+
+    <nav>
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a href="products.html" data-i18n="nav_products">Products</a>
+      <a href="gallery.html" data-i18n="nav_gallery">Gallery</a>
+      <a href="about.html" data-i18n="nav_about">About</a>
+      <a href="contact.html" data-i18n="nav_contact">Contact</a>
+      <a href="auth.html" data-i18n="nav_signin">Sign In</a>
+    </nav>
+
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button id="lang-en" class="lang-btn">EN</button>
+      <button id="lang-am" class="lang-btn">AM</button>
+    </div>
+
+    <button class="menu-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+    <main class="container">
+      <h1>Contact Triple A</h1>
+      <p>For pricing inquiries, bulk orders, or pickup logistics, reach out using the form or call us below.</p>
+      
+      <h6>Call us:</h6>
+      <h5>+251913501299<br>+251970972671</h5>
+      <h3>OR</h3>
+      <!-- Formspree form (you provided the ID) -->
+      <form id="contact-form" action="https://formspree.io/f/mwvpwnpy" method="POST" style="max-width:700px;">
+        <div style="margin-top:12px;">
+          <label style="display:block; font-weight:600;">Name</label>
+          <input name="name" type="text" required style="width:100%; padding:12px; border-radius:8px; border:1px solid #d2d2d7;">
+        </div>
+        <div style="margin-top:12px;">
+          <label style="display:block; font-weight:600;">Email</label>
+          <input name="email" type="email" required style="width:100%; padding:12px; border-radius:8px; border:1px solid #d2d2d7;">
+        </div>
+        <div style="margin-top:12px;">
+          <label style="display:block; font-weight:600;">Message</label>
+          <textarea name="message" required rows="6" style="width:100%; padding:12px; border-radius:8px; border:1px solid #d2d2d7;"></textarea>
+        </div>
+        <div style="margin-top:16px;">
+          <button type="submit">Send</button>
+        </div>
+      </form>
+    </main>
+    <script>
+      const toggle = document.querySelector('.menu-toggle');
+
+      toggle.addEventListener('click', () => {
+        document.body.classList.toggle('menu-open');
+      });
+    </script>
+    <script type="module" src="js/auth.js"></script>
+  </body>
+</html>
+
+
+
+
+
+

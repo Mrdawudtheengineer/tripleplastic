@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>About - Triple A</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+   <header class="navbar">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <img src="assets/logo.png" alt="Triple A logo" style="height:32px; display:inline-block; vertical-align:middle;"/>
+      <span class="logo-text">TRIPLE A</span>
+    </a>
+
+    <nav>
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a href="products.html" data-i18n="nav_products">Products</a>
+      <a href="gallery.html" data-i18n="nav_gallery">Gallery</a>
+      <a href="about.html" data-i18n="nav_about">About</a>
+      <a href="contact.html" data-i18n="nav_contact">Contact</a>
+      <a href="auth.html" data-i18n="nav_signin">Sign In</a>
+    </nav>
+
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button id="lang-en" class="lang-btn">EN</button>
+      <button id="lang-am" class="lang-btn">AM</button>
+    </div>
+
+    <button class="menu-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+    <main class="container">
+      <section style="margin-bottom: 60px;">
+        <h1>The Story of Triple A</h1>
+        <p style="font-size: 18px; margin-top: 20px;">Triple A was founded in Ethiopia by three brothers whose names all begin with the letter 'A'. Growing up with a shared passion for engineering and entrepreneurship, they saw a gap in the local market for high-quality, reliable industrial plastic manufacturing. What started as a small family dream has grown into one of Ethiopia's most trusted wholesale suppliers.</p>
+      </section>
+
+      <div class="grid" style="margin-top: 0; margin-bottom: 60px;">
+        <div class="product-card">
+          <h3>Local Roots</h3>
+          <p>We are deeply committed to Ethiopia's industrial growth. By manufacturing locally, we reduce import costs for our partners and create jobs within our community.</p>
+        </div>
+        <div class="product-card">
+          <h3>Global Standards</h3>
+          <p>While we are a local business, our quality standards are world-class. We invest in the latest European and Asian extrusion technology to stay ahead of the curve.</p>
+        </div>
+        <div class="product-card">
+          <h3>Family Integrity</h3>
+          <p>The 'AAA' in our name represents the three brothers, but it also stands for our core values: Authentic service, Advanced technology, and Absolute reliability.</p>
+        </div>
+      </div>
+
+      <h2>Advanced Manufacturing Process</h2>
+      <p>Our films are produced using high-precision blown-film and cast-film extrusion processes right here in our Ethiopian facility. Thermoplastic resins are melted and forced through a die to form a thin film. For blown-film, air is used to expand the tube of molten polymer which is then cooled and flattened to form a continuous sheet. This method provides superior strength—perfect for the demanding industrial environments our customers operate in.</p>
+
+      <h2 style="margin-top: 40px;">Why Ethiopia Chooses Triple A</h2>
+      <p>Choosing Triple A means predictable specifications at scale. We offer tight tolerances on thickness, color, and mechanical performance—essential for industrial and wholesale buyers. Our team supports volume forecasts, provides fast lead times, and helps arrange logistics and pickup within Ethiopia so you can rely on a continuous, uninterrupted supply chain.</p>
+    </main>
+
+    <script>
+      const toggle = document.querySelector('.menu-toggle');
+
+      toggle.addEventListener('click', () => {
+        document.body.classList.toggle('menu-open');
+      });
+    </script>
+
+    <script type="module" src="js/auth.js"></script>
+  </body>
+</html>
+
+
+
