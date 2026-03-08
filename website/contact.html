@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Contact - Triple A</title>
+    <meta name="description" content="Get in touch with Triple A for orders, pricing or facility visits in Ethiopia." />
+    <meta name="keywords" content="contact, phone, email, map" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
@@ -36,12 +38,19 @@
 
     <main class="container">
       <h1>Contact Triple A</h1>
-      <p>For pricing inquiries, bulk orders, or pickup logistics, reach out using the form or call us below.</p>
+      <p>For pricing inquiries, bulk orders, or pickup logistics, reach out using the form, call us, or visit our Addis Ababa facility.</p>
       
       <h6>Call us:</h6>
-      <h5>+251913501299<br>+251970972671</h5>
+      <h5>+251 913 501 299<br>+251 970 972 671</h5>
       <h3>OR</h3>
       <!-- Formspree form (you provided the ID) -->
+      
+      <!-- office location map -->
+      <div style="margin:40px 0; text-align:center;">
+        <iframe
+          src="https://maps.google.com/maps?q=Addis%20Ababa%20Ethiopia&amp;z=15&amp;output=embed"
+          width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
       <form id="contact-form" action="https://formspree.io/f/mwvpwnpy" method="POST" style="max-width:700px;">
         <div style="margin-top:12px;">
           <label style="display:block; font-weight:600;">Name</label>
@@ -68,6 +77,29 @@
       });
     </script>
     <script type="module" src="js/auth.js"></script>
+    <script type="module" src="js/site.js"></script>
+
+    <footer class="site-footer">
+      <div class="footer-info">
+        <div>
+          <h3>Triple A Plastics</h3>
+          <p>Industrial plastic manufacturing and wholesale. Founded by Abdurahman Omar in Ethiopia.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <nav class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer-info" style="margin-top:20px; justify-content:space-between;">
+        <div>&copy; 2026 Triple A. All rights reserved.</div>
+      </div>
+    </footer>
   </body>
 </html>
 

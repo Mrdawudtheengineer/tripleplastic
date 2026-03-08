@@ -1,8 +1,10 @@
 // public/js/products.js
 import { supabase } from './supabase.js';
 
-// Product list rendering with proper event handlers (no inline onclicks)
+// hold all products for client-side filtering
+let productsData = [];
 const container = document.getElementById('product-list');
+const searchInput = document.getElementById('product-search');
 
 function createProductCard(p) {
   const qty = (typeof p.quantity === 'number') ? p.quantity : null;
@@ -11,6 +13,7 @@ function createProductCard(p) {
   const card = document.createElement('div');
   card.className = 'product-card';
   card.style.position = 'relative';
+  card.dataset.id = p.id;
 
   const title = document.createElement('h3');
   title.innerText = p.name || 'Product';
@@ -52,12 +55,23 @@ function createProductCard(p) {
   orderBtn.innerText = outOfStock ? 'Out of Stock' : 'Order Now';
   orderBtn.disabled = !!outOfStock;
   orderBtn.addEventListener('click', () => {
-    // dynamic import to reuse existing module
     import('./order.js').then(mod => {
       mod.initiateOrder(p.id, p.name, p.price_per_1000 || 0);
     });
   });
   actions.appendChild(orderBtn);
+
+  if (!outOfStock) {
+    const cartBtn = document.createElement('button');
+    cartBtn.innerText = 'Add to Cart';
+    cartBtn.style.marginLeft = '8px';
+    cartBtn.addEventListener('click', () => {
+      const qtyValue = parseInt(qtyInput.value || '1', 10);
+      window.addToCart(p.id, p.name, p.price_per_1000 || 0, qtyValue);
+    });
+    actions.appendChild(cartBtn);
+  }
+
   card.appendChild(actions);
 
   if (outOfStock) {
@@ -78,6 +92,19 @@ function createProductCard(p) {
   return card;
 }
 
+function renderProducts(list) {
+  if (!container) return;
+  container.innerHTML = '';
+  if (!list || list.length === 0) {
+    container.innerHTML = '<p>No products available.</p>';
+    return;
+  }
+  list.forEach(p => {
+    const card = createProductCard(p);
+    container.appendChild(card);
+  });
+}
+
 export async function loadProducts() {
   if (!container) return;
   container.innerHTML = '<p>Loading catalog...</p>';
@@ -90,20 +117,22 @@ export async function loadProducts() {
     return;
   }
 
-  container.innerHTML = '';
-  if (!data || data.length === 0) {
-    container.innerHTML = '<p>No products available.</p>';
-    return;
-  }
+  productsData = data || [];
+  renderProducts(productsData);
+}
 
-  data.forEach(p => {
-    const card = createProductCard(p);
-    container.appendChild(card);
+// search handler
+if (searchInput) {
+  searchInput.addEventListener('input', e => {
+    const q = e.target.value.toLowerCase();
+    const filtered = productsData.filter(p => {
+      return (p.name || '').toLowerCase().includes(q) || (p.size || '').toLowerCase().includes(q);
+    });
+    renderProducts(filtered);
   });
 }
 
 // load on module import
 loadProducts();
 
-// export default for other modules if needed
 export default loadProducts;

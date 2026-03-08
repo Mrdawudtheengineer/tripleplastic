@@ -4,6 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Products - Triple A</title>
+    <meta name="description" content="Browse Triple A's wholesale catalog of industrial plastic products made in Ethiopia.">
+    <meta name="keywords" content="plastic products, catalog, Ethiopia, wholesale">
+    <meta property="og:title" content="Triple A Products" />
+    <meta property="og:description" content="High-volume industrial plastic solutions for Ethiopian businesses." />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
@@ -38,6 +42,12 @@
       <h1 class="text-center">Wholesale Catalog</h1>
       <p class="text-center" style="font-size: 18px; max-width: 700px; margin: 20px auto 40px;">Triple A provides premium industrial plastic solutions tailored for the Ethiopian market. Our high-capacity facility ensures that your bulk orders are fulfilled with the consistency and durability your business demands.</p>
 
+      <!-- search and cart controls -->
+      <div class="product-controls" style="text-align:center; margin:20px 0; display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+        <input id="product-search" type="text" placeholder="Search products..." style="padding:8px; width:60%; max-width:300px;" />
+        <button id="view-cart" onclick="showCart()" style="padding:8px 16px;">View Cart</button>
+      </div>
+
       <div class="grid" style="margin-top: 0; margin-bottom: 40px;">
         <div class="product-card">
           <h3>Quality Tested</h3>
@@ -57,6 +67,18 @@
         <p>Loading catalog...</p>
       </div>
     </main>
+
+    <!-- cart slide-out panel -->
+    <div class="cart-panel" aria-label="Shopping cart">
+      <button class="close-cart" onclick="hideCart()" style="font-size:1.5rem; background:transparent; border:none; position:absolute; top:12px; right:12px;">×</button>
+      <h2>Your Cart</h2>
+      <div class="cart-items"></div>
+      <div class="cart-footer">
+        <p class="cart-total">Total: $0.00</p>
+        <button onclick="checkout()" style="background:var(--blue); color:#fff; padding:10px; border:none; border-radius:8px; width:100%;">Checkout</button>
+      </div>
+    </div>
+
     <script>
       const toggle = document.querySelector('.menu-toggle');
 
@@ -68,5 +90,29 @@
     <script type="module" src="js/products.js"></script>
     <script type="module" src="js/order.js"></script>
     <script type="module" src="js/auth.js"></script>
+    <script type="module" src="js/site.js"></script>
+
+    <footer class="site-footer">
+      <div class="footer-info">
+        <div>
+          <h3>Triple A Plastics</h3>
+          <p>Industrial plastic manufacturing and wholesale.
+          Founded by Abdurahman Omar in Ethiopia.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <nav class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer-info" style="margin-top:20px; justify-content:space-between;">
+        <div>&copy; 2026 Triple A. All rights reserved.</div>
+      </div>
+    </footer>
   </body>
 </html>
