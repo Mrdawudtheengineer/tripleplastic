@@ -2,7 +2,7 @@
 import { supabase } from './supabase.js';
 
 // Make it global for convenience
-export async function initiateOrder(productId, productName, price) {
+export async function initiateOrder(productId, productName, price, overrideQty) {
   const { data: { user } } = await supabase.auth.getUser();
 
   // 1. Check Auth
@@ -12,8 +12,12 @@ export async function initiateOrder(productId, productName, price) {
     return;
   }
 
-  const qtyEl = document.getElementById(`qty-${productId}`);
-  const qty = qtyEl ? parseInt(qtyEl.value || '0', 10) : 0;
+  // quantity may be passed in for cart checkout
+  let qty = overrideQty;
+  if (typeof qty === 'undefined') {
+    const qtyEl = document.getElementById(`qty-${productId}`);
+    qty = qtyEl ? parseInt(qtyEl.value || '0', 10) : 0;
+  }
   if (!qty || isNaN(qty) || qty < 1) {
     alert('Please enter a valid quantity.');
     return;

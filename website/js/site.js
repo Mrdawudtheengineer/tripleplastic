@@ -150,5 +150,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const panel = document.querySelector('.cart-panel');
     if (panel) panel.classList.remove('open');
   };
+  
+  window.checkout = async function() {
+    if (!window.cart || window.cart.length === 0) {
+      alert('Your cart is empty.');
+      return;
+    }
+    if (!confirm(`You have ${window.cart.length} item(s) in your cart. Proceed to place orders?`)) {
+      return;
+    }
+    for (const item of window.cart) {
+      // use existing order flow; keep quantity from cart
+      await import('./order.js').then(mod => {
+        // ensure quantity element exists or pass item.qty to order function? we modify order to accept qty param
+        mod.initiateOrder(item.id, item.name, item.price);
+      });
+    }
+    // clear cart after checkout attempt
+    window.cart = [];
+    saveCart();
+    renderCart();
+    window.hideCart();
+  };
+
   renderCart();
 });
