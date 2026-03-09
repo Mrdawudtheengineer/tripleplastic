@@ -4,7 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sign In — Triple A</title>
-  <meta name="description" content="Sign in to Triple A to manage orders or access the business portal." />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -39,14 +38,27 @@
   <main class="auth-split"> <!-- keep under navbar -->
     <section class="auth-left">
       <div class="hero-inner">
-        <h1 data-i18n="home_hero_title">Premium Plastic Products.<br>Built by Brothers.<br>Engineered for Ethiopia.</h1>
-        <p data-i18n="home_hero_desc">Triple A is more than just a factory — it's a family legacy. Founded by three brothers united by a single vision, we provide Ethiopia's most reliable industrial plastic solutions.</p>
+        <h1 data-i18n="home_hero_title">Premium Plastic Products.<br>Built by Abdurahman Omar.<br>Engineered for Ethiopia.</h1>
+        <p data-i18n="home_hero_desc">Triple A is more than just a factory — it's a commitment to excellence. Founded by Abdurahman Omar, we provide Ethiopia's most reliable industrial plastic solutions with 24/7 customer support.</p>
 
         <!-- small gallery images similar to homepage look -->
         <div style="display:flex; gap:12px; margin-top:18px; flex-wrap:wrap;">
           <div class="img-card" style="width:140px; height:90px; background-image:url('assets/gallery/photo1.jpg');"></div>
           <div class="img-card" style="width:140px; height:90px; background-image:url('assets/gallery/photo2.jpg.html');"></div>
           <div class="img-card" style="width:140px; height:90px; background-image:url('assets/gallery/photo3.jpg.html');"></div>
+        </div>
+
+        <!-- Account Benefits -->
+        <div style="margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 12px; backdrop-filter: blur(10px);">
+          <h4 style="margin-top: 0; color: rgba(255,255,255,0.95);">✓ Account Benefits</h4>
+          <ul style="margin: 12px 0; padding-left: 20px; color: rgba(255,255,255,0.9); line-height: 1.8;">
+            <li>Track your orders in real-time</li>
+            <li>Save favorite products for quick ordering</li>
+            <li>Access wholesale pricing and volume discounts</li>
+            <li>Manage payment history & invoices</li>
+            <li>Priority 24/7 customer support</li>
+            <li>Exclusive partner promotions</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -113,30 +125,35 @@
     </section>
   </main>
 
-  <script src="js/lang-toggle.js"></script>
-  <script type="module" src="js/auth.js"></script>
-  <script type="module" src="js/site.js"></script>
-
-  <footer class="site-footer">
-    <div class="footer-info">
-      <div>
-        <h3>Triple A Plastics</h3>
-        <p>Industrial plastic manufacturing and wholesale. Founded by Abdurahman Omar in Ethiopia.</p>
+  <footer style="margin-top: 60px;">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <h4>About Triple A</h4>
+        <p>Leading plastic manufacturing and wholesale supplier in Ethiopia, founded by Abdurahman Omar and dedicated to industrial excellence.</p>
       </div>
-      <div>
+      <div class="footer-section">
         <h4>Quick Links</h4>
-        <nav class="footer-nav">
-          <a href="index.html">Home</a>
-          <a href="products.html">Products</a>
-          <a href="gallery.html">Gallery</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-        </nav>
+        <a href="index.html">Home</a><br>
+        <a href="products.html">Products</a><br>
+        <a href="gallery.html">Gallery</a><br>
+        <a href="about.html">About Us</a>
+      </div>
+      <div class="footer-section">
+        <h4>Support Hours</h4>
+        <p>Mon-Fri: 8AM - 6PM ET<br>Sat: 9AM - 2PM ET<br>24/7 Emergency Support<br>info@triplea.et</p>
+      </div>
+      <div class="footer-section">
+        <h4>Security</h4>
+        <p>🔒 SSL Encrypted<br>✓ ISO 9001 Certified<br>✓ Data Protected<br>✓ Secure Payments</p>
       </div>
     </div>
-    <div class="footer-info" style="margin-top:20px; justify-content:space-between;">
-      <div>&copy; 2026 Triple A. All rights reserved.</div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Triple A Plastic Manufacturing. Founded by Abdurahman Omar | Excellence in Ethiopian Manufacturing</p>
     </div>
   </footer>
+
+  <script src="js/lang-toggle.js"></script>
+  <script type="module" src="js/features.js"></script>
+  <script type="module" src="js/auth.js"></script>
 </body>
 </html>

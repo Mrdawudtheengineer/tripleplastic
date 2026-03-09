@@ -4,8 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Gallery - Triple A</title>
-    <meta name="description" content="View photos and videos of Triple A's factory, products and processes in Ethiopia." />
-    <meta name="keywords" content="gallery, photos, videos, factory" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
 
@@ -46,40 +44,142 @@
     <main class="container">
       <h1 class="text-center">Factory & Product Gallery</h1>
       <p class="text-center" style="max-width:720px; margin:20px auto 50px; font-size:18px;">
-        Explore our manufacturing facilities, extrusion lines, and finished industrial plastic products.
+        Explore our state-of-the-art manufacturing facilities, advanced extrusion lines, and premium plastic products serving Ethiopia's industries.
       </p>
+
+      <!-- FACILITY INFO CARDS -->
+      <div class="grid" style="margin-top: 0; margin-bottom: 60px;">
+        <div class="product-card">
+          <h3>🏭 Advanced Extrusion</h3>
+          <p>Our facility features European-standard extrusion equipment capable of producing 50+ tons per day with precision micron tolerances.</p>
+        </div>
+        <div class="product-card">
+          <h3>🔬 Quality Control</h3>
+          <p>24/7 automated testing ensures every batch meets strict tensile strength, thickness, and durability specifications.</p>
+        </div>
+        <div class="product-card">
+          <h3>📦 Efficient Logistics</h3>
+          <p>Warehouse facilities in Addis Ababa with next-day delivery capabilities for local wholesale partners within Ethiopia.</p>
+        </div>
+      </div>
 
       <!-- Filters -->
       <div class="gallery-filters">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="photo">Photos</button>
-        <button class="filter-btn" data-filter="video">Videos</button>
+        <button class="filter-btn active" data-filter="all">All Media</button>
+        <button class="filter-btn" data-filter="photo">Equipment</button>
+        <button class="filter-btn" data-filter="video">Production</button>
       </div>
 
-      <!-- Gallery Grid -->
+      <!-- Gallery Grid with Captions -->
       <div class="media-grid">
-        <!-- Photo -->
-        <div class="media-card" data-type="photo">
-          <img src="assets/gallery/photo1.jpg" alt="Plastic extrusion line">
+        <!-- Equipment Photo 1 -->
+        <div class="media-card" data-type="photo" style="position: relative;">
+          <img src="assets/gallery/photo1.jpg" alt="Advanced plastic extrusion line">
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); color: white; padding: 20px 16px;">
+            <div style="font-weight: 700;">Blown-Film Extrusion Line</div>
+            <div style="font-size: 0.9rem; color: rgba(255,255,255,0.9);">High-speed production with precision controls</div>
+          </div>
         </div>
 
-        <div class="media-card" data-type="photo">
-          <img src="assets/gallery/photo2.jpg.html" alt="Industrial plastic rolls">
+        <!-- Equipment Photo 2 -->
+        <div class="media-card" data-type="photo" style="position: relative;">
+          <img src="assets/gallery/photo2.jpg.html" alt="Quality control testing equipment">
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); color: white; padding: 20px 16px;">
+            <div style="font-weight: 700;">Quality Testing Lab</div>
+            <div style="font-size: 0.9rem; color: rgba(255,255,255,0.9);">Automated thickness and strength analysis</div>
+          </div>
         </div>
 
-        <div class="media-card" data-type="photo">
-          <img src="assets/gallery/photo3.jpg.html" alt="Warehouse storage">
+        <!-- Equipment Photo 3 -->
+        <div class="media-card" data-type="photo" style="position: relative;">
+          <img src="assets/gallery/photo3.jpg.html" alt="Climate-controlled warehouse storage">
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); color: white; padding: 20px 16px;">
+            <div style="font-weight: 700;">Warehouse & Storage</div>
+            <div style="font-size: 0.9rem; color: rgba(255,255,255,0.9);">Climate-controlled facility for product integrity</div>
+          </div>
         </div>
 
-        <!-- Video -->
+        <!-- Production Video 1 -->
         <div class="media-card" data-type="video">
-          <video controls preload="metadata">
+          <video controls preload="metadata" style="width: 100%; height: 100%;">
             <source src="assets/gallery/video1.mp4.html" type="video/mp4">
+            Your browser does not support video playback.
           </video>
         </div>
 
+        <!-- Production Video 2 -->
         <div class="media-card" data-type="video">
-          <video controls preload="metadata">
+          <video controls preload="metadata" style="width: 100%; height: 100%;">
+            <source src="assets/gallery/video2.mp4.html" type="video/mp4">
+            Your browser does not support video playback.
+          </video>
+        </div>
+      </div>
+
+      <!-- PRODUCTION PROCESS SECTION -->
+      <section style="margin-top: 80px; padding: 40px; background: var(--gray-light); border-radius: var(--radius-lg);">
+        <h2 style="text-align: center; margin-top: 0;">Production Process</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-top: 30px;">
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 12px;">1️⃣</div>
+            <h4>Raw Material Input</h4>
+            <p style="color: var(--gray);">High-grade thermoplastic resins imported from certified suppliers worldwide.</p>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 12px;">2️⃣</div>
+            <h4>Melting & Extrusion</h4>
+            <p style="color: var(--gray);">Controlled heating and pressure through advanced extrusion dies.</p>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 12px;">3️⃣</div>
+            <h4>Cooling & Winding</h4>
+            <p style="color: var(--gray);">Precise temperature control and automated winding for consistency.</p>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 12px;">4️⃣</div>
+            <h4>Quality Testing</h4>
+            <p style="color: var(--gray);">Every batch tested for thickness, tensile strength, and durability.</p>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 12px;">5️⃣</div>
+            <h4>Packaging & Logistics</h4>
+            <p style="color: var(--gray);">Professional wrapping and same-day delivery coordination.</p>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: 2rem; margin-bottom: 12px;">6️⃣</div>
+            <h4>Customer Fulfillment</h4>
+            <p style="color: var(--gray);">24/7 support and re-order management for bulk partners.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h4>About Triple A</h4>
+          <p>Leading plastic manufacturing and wholesale supplier in Ethiopia, founded by Abdurahman Omar and dedicated to industrial excellence.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a><br>
+          <a href="products.html">Products</a><br>
+          <a href="about.html">About</a><br>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-section">
+          <h4>Contact Info</h4>
+          <p>📞 +251 913 501 299<br>📞 +251 970 972 671<br>📧 info@triplea.et<br>📍 Addis Ababa, Ethiopia</p>
+        </div>
+        <div class="footer-section">
+          <h4>Facility Hours</h4>
+          <p>Mon-Fri: 7AM - 8PM<br>Sat: 8AM - 3PM<br>Sunday: Closed<br>24/7 Emergency Orders</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Triple A Plastic Manufacturing. Founded by Abdurahman Omar | Serving Ethiopia with Excellence</p>
+      </div>
+    </footer>
             <source src="assets/gallery/video2.mp4.html" type="video/mp4">
           </video>
         </div>
@@ -121,28 +221,5 @@
     </script>
 
     <script type="module" src="js/auth.js"></script>
-    <script type="module" src="js/site.js"></script>
-
-    <footer class="site-footer">
-      <div class="footer-info">
-        <div>
-          <h3>Triple A Plastics</h3>
-          <p>Industrial plastic manufacturing and wholesale. Founded by Abdurahman Omar in Ethiopia.</p>
-        </div>
-        <div>
-          <h4>Quick Links</h4>
-          <nav class="footer-nav">
-            <a href="index.html">Home</a>
-            <a href="products.html">Products</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-          </nav>
-        </div>
-      </div>
-      <div class="footer-info" style="margin-top:20px; justify-content:space-between;">
-        <div>&copy; 2026 Triple A. All rights reserved.</div>
-      </div>
-    </footer>
   </body>
 </html>

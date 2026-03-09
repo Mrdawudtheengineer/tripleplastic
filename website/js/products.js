@@ -1,10 +1,9 @@
 // public/js/products.js
 import { supabase } from './supabase.js';
+import cart from './cart.js';
 
-// hold all products for client-side filtering
-let productsData = [];
+// Product list rendering with proper event handlers (no inline onclicks)
 const container = document.getElementById('product-list');
-const searchInput = document.getElementById('product-search');
 
 function createProductCard(p) {
   const qty = (typeof p.quantity === 'number') ? p.quantity : null;
@@ -13,7 +12,6 @@ function createProductCard(p) {
   const card = document.createElement('div');
   card.className = 'product-card';
   card.style.position = 'relative';
-  card.dataset.id = p.id;
 
   const title = document.createElement('h3');
   title.innerText = p.name || 'Product';
@@ -32,7 +30,8 @@ function createProductCard(p) {
   const price = document.createElement('p');
   price.style.marginTop = '12px';
   price.style.fontWeight = '700';
-  price.innerText = `$${p.price_per_1000 || '—'} / 1k units`;
+  price.style.color = 'var(--blue)';
+  price.innerText = `$${p.price_per_1000 || '—'} per 1k units`;
   card.appendChild(price);
 
   const qtyRow = document.createElement('div');
@@ -51,27 +50,37 @@ function createProductCard(p) {
 
   const actions = document.createElement('div');
   actions.style.marginTop = '12px';
+  actions.style.display = 'grid';
+  actions.style.gridTemplateColumns = '1fr 1fr';
+  actions.style.gap = '8px';
+  
   const orderBtn = document.createElement('button');
-  orderBtn.innerText = outOfStock ? 'Out of Stock' : 'Order Now';
+  orderBtn.innerText = outOfStock ? 'Out of Stock' : 'Add to Cart';
   orderBtn.disabled = !!outOfStock;
+  orderBtn.style.padding = '10px 16px';
+  orderBtn.style.fontSize = '0.9rem';
   orderBtn.addEventListener('click', () => {
-    import('./order.js').then(mod => {
-      mod.initiateOrder(p.id, p.name, p.price_per_1000 || 0);
-    });
+    const quantity = parseInt(qtyInput.value) || 1000;
+    cart.addItem(p.id, p.name, p.price_per_1000 || 0, quantity);
   });
   actions.appendChild(orderBtn);
 
-  if (!outOfStock) {
-    const cartBtn = document.createElement('button');
-    cartBtn.innerText = 'Add to Cart';
-    cartBtn.style.marginLeft = '8px';
-    cartBtn.addEventListener('click', () => {
-      const qtyValue = parseInt(qtyInput.value || '1', 10);
-      window.addToCart(p.id, p.name, p.price_per_1000 || 0, qtyValue);
-    });
-    actions.appendChild(cartBtn);
-  }
-
+  const quoteBtn = document.createElement('button');
+  quoteBtn.innerText = 'Request Quote';
+  quoteBtn.style.padding = '10px 16px';
+  quoteBtn.style.fontSize = '0.9rem';
+  quoteBtn.style.background = 'var(--gray-light)';
+  quoteBtn.style.color = 'var(--black)';
+  quoteBtn.addEventListener('click', () => {
+    const modal = document.getElementById('quote-modal');
+    if (modal) {
+      const productInput = modal.querySelector('select[name="product"]');
+      if (productInput) productInput.value = p.name;
+      modal.classList.add('open');
+    }
+  });
+  actions.appendChild(quoteBtn);
+  
   card.appendChild(actions);
 
   if (outOfStock) {
@@ -80,29 +89,21 @@ function createProductCard(p) {
     overlay.style.left = '0';
     overlay.style.right = '0';
     overlay.style.bottom = '0';
+    overlay.style.top = '0';
     overlay.style.padding = '12px';
     overlay.style.fontWeight = '800';
-    overlay.style.color = '#333';
-    overlay.style.background = 'transparent';
-    overlay.innerText = 'Out of Stock, will be available soon';
+    overlay.style.color = '#999';
+    overlay.style.background = 'rgba(255,255,255,0.5)';
+    overlay.style.display = 'flex';
+    overlay.style.alignItems = 'center';
+    overlay.style.justifyContent = 'center';
+    overlay.style.borderRadius = 'var(--radius-lg)';
+    overlay.innerText = '⏱ Coming Soon';
     card.appendChild(overlay);
-    card.style.opacity = '0.6';
+    card.style.opacity = '0.7';
   }
 
   return card;
-}
-
-function renderProducts(list) {
-  if (!container) return;
-  container.innerHTML = '';
-  if (!list || list.length === 0) {
-    container.innerHTML = '<p>No products available.</p>';
-    return;
-  }
-  list.forEach(p => {
-    const card = createProductCard(p);
-    container.appendChild(card);
-  });
 }
 
 export async function loadProducts() {
@@ -117,22 +118,20 @@ export async function loadProducts() {
     return;
   }
 
-  productsData = data || [];
-  renderProducts(productsData);
-}
+  container.innerHTML = '';
+  if (!data || data.length === 0) {
+    container.innerHTML = '<p style="text-align: center; padding: 40px; color: var(--gray);">No products available. <a href="contact.html">Contact us</a> for custom orders.</p>';
+    return;
+  }
 
-// search handler
-if (searchInput) {
-  searchInput.addEventListener('input', e => {
-    const q = e.target.value.toLowerCase();
-    const filtered = productsData.filter(p => {
-      return (p.name || '').toLowerCase().includes(q) || (p.size || '').toLowerCase().includes(q);
-    });
-    renderProducts(filtered);
+  data.forEach(p => {
+    const card = createProductCard(p);
+    container.appendChild(card);
   });
 }
 
 // load on module import
 loadProducts();
 
+// export default for other modules if needed
 export default loadProducts;
